@@ -1,0 +1,8 @@
+FROM mcr.microsoft.com/devcontainers/javascript-node:24-trixie
+
+WORKDIR /workspaces/finance-app
+
+COPY --chown=node:node .commits-patterns/package*.json ./.commits-patterns/
+
+USER node
+RUN npm ci --prefix .commits-patterns
